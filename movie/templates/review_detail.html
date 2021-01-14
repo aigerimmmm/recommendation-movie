@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block title %}
+<h2><a href="{% url 'movie_detail' review.movie.id %}">{{ review.movie.title }}</a></h2>
+{% endblock %}
+
+<h4>Rated {{ review.rating }} of by {{ review.user_name }}</h4>
+<p>{{ review.pub_date }}</p>
+<p>{{ review.comment }}</p>
+{% endblock %}

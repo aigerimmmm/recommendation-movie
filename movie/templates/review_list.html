@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}
+<h2>Latest reviews</h2>
+{% endblock %}
+
+
+{% if asa %}
+<div>
+    <img src={{ asa }} />
+ </div>
+{% else %}
+<p>No reviews are available</p>
+{% endif %}
+{% endblock %}

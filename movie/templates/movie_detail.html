@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h2>{{ movie.title }}</h2>
+<h5>{{ movie.review_set.count }} reviews ({{ movie.average_rating | floatformat }} average rating)</h5>
+
+<h3>Recent reviews</h3>
+
+{% if movie.review_set.all %}
+<div>
+    {% for review in movie.review_set.all %}
+    <div>
+        <em>{{ review.comment }}</em>
+        <h6>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h6>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews for this movie yet</p>
+{% endif %}
+
+<h3>Add your review</h3>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'add_review' movie.id %}" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success" value="Add">Add</button>
+</form>
+
+{% endblock %}

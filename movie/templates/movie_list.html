@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load columns %}
+
+{% if zipped_image_and_movies_half %}
+<div style="float: left;margin-left:70px;margin-top:60px;">
+<table class="table table-bordered" >
+
+    <thead class="success" style="width:40px">
+        
+    </thead>
+
+    <tbody>
+
+    {% for key, values in zipped_image_and_movies_half %}
+        <tr class="">
+            <td><h4><a href="{% url 'movie_detail' key.id %}">
+                {{ key.title }}
+            </a></h4><br />
+            <h5>{{ key.review_set.count }} reviews</h5>
+            <h5>{{ key.average_rating | floatformat }} average rating</h5></td>
+
+            <td><b><img src={{ values }} />
+            </b></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+</div>
+
+
+
+<div style="float: left;margin-left:100px;margin-top:60px;">
+    <table class="table table-bordered" >
+    
+        <thead class="success" style="width:40px">
+            
+        </thead>
+    
+        <tbody>
+    
+        {% for key, values in zipped_image_and_movies_sec_half %}
+            <tr class="">
+                <td><h4><a href="{% url 'movie_detail' key.id %}">
+                    {{ key.title }}
+                </a></h4><br />
+                    <h5>{{ key.review_set.count }} reviews</h5>
+                    <h5>{{ key.average_rating | floatformat }} average rating</h5>
+                
+                </td>
+    
+                <td><b><img src={{ values }} />
+                </b></td>
+            </tr>
+        {% endfor %}
+    
+        </tbody>
+    
+    </table>
+</div>
+    
+{% else %}
+<p>No movies are available</p>
+{% endif %}
+{% endblock %}
