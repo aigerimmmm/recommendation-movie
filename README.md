@@ -3,7 +3,7 @@
 
 
 
-![aika](https://j.gifs.com/0Ywp8v.gif)
+![gif](https://github.com/aigerimmmm/recommendation-movie/blob/master/gif.gif)
 
 
 Dataset.
