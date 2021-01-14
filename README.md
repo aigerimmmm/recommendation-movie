@@ -1,5 +1,5 @@
 # Movie Recommendation System
-![Alt text](https://gifs.com/gif/video-0Ywp8v)
+![Alt text](/Users/aika/Desktop/gif.gif)
 
 
 Dataset.
